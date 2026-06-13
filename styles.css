@@ -520,6 +520,7 @@ a, button, input, textarea {
 
 .section {
     padding: 100px 0;
+    overflow: hidden;
 }
 
 .secondary-bg {
@@ -627,6 +628,7 @@ a, button, input, textarea {
     align-items: center;
     padding-top: var(--nav-height);
     position: relative;
+    overflow: hidden;
 }
 
 .hero-layout {
@@ -646,12 +648,14 @@ a, button, input, textarea {
     font-family: var(--font-mono);
     color: var(--accent-mint);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
     letter-spacing: 1px;
+    display: block;
+    max-width: 100%;
 }
 
 .hero-name {
-    font-size: 4.2rem;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -1.5px;
@@ -661,7 +665,7 @@ a, button, input, textarea {
 }
 
 .typing-text {
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 4.5vw, 2.2rem);
     font-weight: 700;
     height: 50px;
 }
@@ -806,6 +810,7 @@ a, button, input, textarea {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
 }
 
 .code-editor {
@@ -814,6 +819,8 @@ a, button, input, textarea {
     overflow: hidden;
     background: #0d1117 !important;
     color: #e2e8f0 !important;
+    width: 100%;
+    max-width: 100%;
 }
 
 .editor-header {
@@ -857,6 +864,14 @@ a, button, input, textarea {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     line-height: 1.6;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.editor-body pre {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
     overflow-x: auto;
 }
 
@@ -1791,6 +1806,7 @@ a, button, input, textarea {
     
     .hero-content {
         align-items: center;
+        text-align: center;
     }
     
     .hero-description {
@@ -1858,12 +1874,9 @@ a, button, input, textarea {
         right: 0;
     }
     
-    .hero-name {
-        font-size: 3rem;
-    }
-    
     .typing-text {
-        font-size: 1.8rem;
+        height: auto;
+        min-height: 50px;
     }
     
     .qualifications-grid {
@@ -1901,15 +1914,7 @@ a, button, input, textarea {
         padding: 60px 0;
     }
 
-    .hero-name {
-        font-size: 2.5rem;
-    }
-    
-    .typing-text {
-        font-size: 1.5rem;
-        height: 40px;
-    }
-    
+
     .hero-metrics {
         flex-direction: column;
         gap: 1.5rem;
