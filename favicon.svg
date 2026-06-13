@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .bracket { fill: #00f5a0; font-family: 'Outfit', -apple-system, sans-serif; font-weight: 800; font-size: 62px; }
+    .text { fill: #7c3aed; font-family: 'Outfit', -apple-system, sans-serif; font-weight: 800; font-size: 50px; }
+    @media (prefers-color-scheme: light) {
+      .bracket { fill: #059669; }
+      .text { fill: #6d28d9; }
+    }
+  </style>
+  <text x="12" y="70" class="bracket">{</text>
+  <text x="50" y="68" class="text" text-anchor="middle">H</text>
+  <text x="68" y="70" class="bracket">}</text>
+</svg>
