@@ -633,15 +633,19 @@ a, button, input, textarea {
 
 .hero-layout {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: 3.5rem;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 .hero-tagline {
@@ -668,6 +672,10 @@ a, button, input, textarea {
     font-size: clamp(1.2rem, 4.5vw, 2.2rem);
     font-weight: 700;
     height: 50px;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .highlight {
@@ -858,7 +866,7 @@ a, button, input, textarea {
 }
 
 .editor-body {
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 1.8rem 1.5rem;
     background: #0d1117 !important;
     color: #e2e8f0 !important;
     font-family: var(--font-mono);
@@ -866,6 +874,7 @@ a, button, input, textarea {
     line-height: 1.6;
     overflow-x: auto;
     width: 100%;
+    text-align: left;
 }
 
 .editor-body pre {
@@ -873,6 +882,26 @@ a, button, input, textarea {
     padding: 0;
     max-width: 100%;
     overflow-x: auto;
+}
+
+/* Custom Scrollbar for Code Editor */
+.editor-body::-webkit-scrollbar {
+    height: 5px;
+}
+
+.editor-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+.editor-body::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.35);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.editor-body::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-mint);
 }
 
 /* C# Syntax Highlighting */
@@ -911,8 +940,41 @@ a, button, input, textarea {
    ========================================================================== */
 .about-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: 2.5rem;
+    align-items: stretch;
+}
+
+.about-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.about-image-card {
+    padding: 0.75rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.about-image-card:hover .about-photo {
+    transform: scale(1.03);
+}
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .about-text {
@@ -1797,7 +1859,7 @@ a, button, input, textarea {
    ========================================================================== */
 @media (max-width: 1024px) {
     .hero-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 3rem;
         text-align: center;
         padding-top: 50px;
@@ -1824,7 +1886,12 @@ a, button, input, textarea {
     }
     
     .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+    
+    .about-image-card {
+        height: 480px;
     }
     
     .qualifications-grid {
@@ -1912,6 +1979,15 @@ a, button, input, textarea {
     
     .section {
         padding: 60px 0;
+    }
+
+    .about-image-card {
+        height: 380px;
+    }
+
+    .editor-body {
+        font-size: 0.72rem;
+        padding: 1rem 1rem 1.4rem 1rem;
     }
 
 
