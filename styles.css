@@ -1544,8 +1544,10 @@ a, button, input, textarea {
 
 /* Skills Highlight links on hover */
 .skill-card.dimmed {
-    opacity: 0.25;
-    transform: scale(0.96);
+    opacity: 0.15 !important;
+    transform: scale(0.95) !important;
+    pointer-events: none;
+    filter: grayscale(100%) blur(0.5px) !important;
 }
 
 .skill-card.highlighted {
@@ -1637,9 +1639,9 @@ a, button, input, textarea {
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-mint);
-    box-shadow: 0 10px 25px var(--accent-glow-mint);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .info-icon {
@@ -1657,11 +1659,28 @@ a, button, input, textarea {
     transition: var(--transition-smooth);
 }
 
-.info-card:hover .info-icon {
+.redirect-logo {
+    cursor: none; /* Custom cursor override */
+}
+
+.info-card:hover .redirect-logo {
     background: var(--accent-mint);
     border-color: var(--accent-mint);
     color: #07090c;
-    box-shadow: 0 0 10px var(--accent-glow-mint);
+    box-shadow: 0 0 12px var(--accent-glow-mint);
+    transform: scale(1.12);
+}
+
+.info-card:hover .redirect-logo.linkedin-logo {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(0, 119, 181, 0.4);
+    transform: scale(1.12);
+}
+
+.redirect-logo:hover {
+    transform: scale(1.22) !important;
 }
 
 .info-card h4 {
@@ -1675,6 +1694,7 @@ a, button, input, textarea {
     font-size: 1rem;
     font-weight: 700;
     color: var(--info-card-desc);
+    transition: var(--transition-smooth);
 }
 
 .info-card:hover p {
