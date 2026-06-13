@@ -521,6 +521,7 @@ a, button, input, textarea {
 .section {
     padding: 100px 0;
     overflow: hidden;
+    scroll-margin-top: 80px;
 }
 
 .secondary-bg {
@@ -1990,6 +1991,25 @@ a, button, input, textarea {
         align-items: flex-start;
         gap: 0.8rem;
     }
+
+    /* Skills Filters Mobile/Tablet Scroll Fix */
+    .skills-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0.3rem 2rem;
+        margin: 0 -2rem;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    .skills-filters::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+    }
+    
+    .filter-btn {
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1998,7 +2018,13 @@ a, button, input, textarea {
     }
     
     .section {
-        padding: 60px 0;
+        padding: 85px 0 60px 0; /* Clear sticky mobile navbar */
+        scroll-margin-top: 70px;
+    }
+
+    .skills-filters {
+        padding: 0.3rem 1.25rem;
+        margin: 0 -1.25rem;
     }
 
     .about-image-card {
